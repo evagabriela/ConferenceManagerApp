@@ -11,7 +11,13 @@ public class Main {
         ConferenceParser conferenceParser = new ConferenceParser(fileName, printStream);
         ConferenceManager conferenceManager = conferenceParser.buildScheduledSetUp();
 
-        conferenceManager.scheduleConferenceWithInformationFromFile();
+        try {
+            conferenceManager.scheduleConferenceWithInformationFromFile();
+        } catch (InvalidTalkException e) {
+            printStream.println("Error trying to schedule your events. Please review your file");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

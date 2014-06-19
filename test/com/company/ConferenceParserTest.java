@@ -2,7 +2,6 @@ package com.company;
 
 import org.junit.Before;
 
-import java.io.BufferedReader;
 import java.io.PrintStream;
 
 import static org.mockito.Mockito.mock;
@@ -10,15 +9,31 @@ import static org.mockito.Mockito.mock;
 public class ConferenceParserTest {
     private ConferenceParser conferenceParser;
     private PrintStream printStream;
-    private BufferedReader bufferedReader;
+    private String fileName;
+    private ConferenceManager conferenceManager;
 
     @Before
     public void setUp(){
-        String fileName = "asasa";
+        fileName = "Writing Fast Tests Against Enterprise Rails 60min";
         printStream = mock(PrintStream.class);
-        bufferedReader = mock(BufferedReader.class);
         conferenceParser = new ConferenceParser(fileName, printStream);
+        conferenceManager = mock(ConferenceManager.class);
+
     }
+
+//    @Test
+//    public void shouldReturnAConferenceManagerObjectWithFileInputs() throws Exception {
+//        List<String> talksList = new ArrayList<String>();
+//        talksList.add(fileName);
+//        List<Talk> validTalksList = conferenceParser.createValidTalks(talksList);
+//
+//        ConferenceManager conferenceManager1 = conferenceParser.buildScheduledSetUp();
+//        ConferenceManager conferenceManager2 = new ConferenceManager(validTalksList);
+//
+//        assertEquals(conferenceManager1, conferenceManager2);
+//    }
+
+
 
 
 

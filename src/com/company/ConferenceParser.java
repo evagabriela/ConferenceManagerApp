@@ -96,6 +96,25 @@ public class ConferenceParser {
         return conferenceManager;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConferenceParser)) return false;
+
+        ConferenceParser that = (ConferenceParser) o;
+
+        if (!fileName.equals(that.fileName)) return false;
+        if (!printStream.equals(that.printStream)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = fileName.hashCode();
+        result = 31 * result + printStream.hashCode();
+        return result;
+    }
 }
 
 
