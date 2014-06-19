@@ -9,12 +9,9 @@ public class Main {
 	    String fileName = "resources/source.txt";
 
         ConferenceParser conferenceParser = new ConferenceParser(fileName, printStream);
-        conferenceParser.getTalksFromFile(fileName);
+        ConferenceManager conferenceManager = conferenceParser.buildScheduledSetUp();
 
-//Create an array with each of the talks information which was extracted from source.txt file
-        System.out.println(conferenceParser.getTalksFromFile(fileName));
-
-//        ConferenceManager conferenceManager = new ConferenceManager();
+        conferenceManager.scheduleConferenceWithInformationFromFile();
 
     }
 }
