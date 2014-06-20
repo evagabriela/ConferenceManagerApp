@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ConferenceManager {
-    private final List<Talk> talksValidList;
+    private List<Talk> talksValidList;
 
     public ConferenceManager(List<Talk> talksValidList) {
         this.talksValidList = talksValidList;
