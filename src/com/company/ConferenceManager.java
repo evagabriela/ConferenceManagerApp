@@ -223,6 +223,6 @@ public class ConferenceManager {
 
     @Override
     public int hashCode() {
-        return talksValidList.hashCode();
+        return 1;
     }
 }

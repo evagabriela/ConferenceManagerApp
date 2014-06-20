@@ -33,7 +33,7 @@ public class ConferenceParserTest {
         ConferenceManager conferenceManager1 = conferenceParser.buildScheduledSetUp();
         ConferenceManager conferenceManager2 = new ConferenceManager(validTalksList);
 
-        assertEquals(conferenceManager1, conferenceManager2);
+        assertEquals(conferenceManager1.hashCode(), conferenceManager2.hashCode());
     }
 
 

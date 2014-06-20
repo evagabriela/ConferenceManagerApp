@@ -19,7 +19,6 @@ public class ConferenceParser {
             FileReader inputFile = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(inputFile);
             String strLine = bufferedReader.readLine();
-
 //            Read File line by line
             while (strLine !=null){
                 talkList.add(strLine);
@@ -103,17 +102,15 @@ public class ConferenceParser {
 
         ConferenceParser that = (ConferenceParser) o;
 
-        if (!fileName.equals(that.fileName)) return false;
-        if (!printStream.equals(that.printStream)) return false;
+        if (fileName != null ? !fileName.equals(that.fileName) : that.fileName != null) return false;
+        if (printStream != null ? !printStream.equals(that.printStream) : that.printStream != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = fileName.hashCode();
-        result = 31 * result + printStream.hashCode();
-        return result;
+        return 1;
     }
 }
 
