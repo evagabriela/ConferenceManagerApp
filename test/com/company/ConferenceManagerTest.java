@@ -1,33 +1,53 @@
 package com.company;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 public class ConferenceManagerTest {
     private PrintStream printStream;
     private String filename;
-    private Talk task;
+    private Talk talk;
     private ConferenceManager conferenceManager;
     private ConferenceParser conferenceParser;
+    private List<Talk> validListTalks;
 
     @Before
     public void setUp() throws Exception {
         filename = "string";
         printStream = mock(PrintStream.class);
-        task = mock(Talk.class);
+        talk = mock(Talk.class);
         conferenceParser = new ConferenceParser(filename,printStream);
+        validListTalks = new ArrayList<Talk>();
+        validListTalks.add(talk);
+        conferenceManager = new ConferenceManager(validListTalks);
+    }
 
+    @Test
+    public void shouldReturnEmptyListIfAllTalksWereScheduledInConference() throws Exception {
+        validListTalks.remove(talk);
+        conferenceManager.getScheduleConferenceTrack(validListTalks);
+        assertTrue(conferenceManager.scheduleConferenceWithInformationFromFile().isEmpty());
     }
 
 //    @Test
-//    public void shouldReturnConferenceTalksTrack() throws Exception {
-//        List<String> listTalks = conferenceParser.getTalksFromFile(filename);
-//        List<Talk> validListTalks = conferenceParser.createValidTalks(listTalks);
-//        conferenceManager = new ConferenceManager(validListTalks);
-//        assertTrue(conferenceManager.scheduleConferenceWithInformationFromFile().contains(validListTalks));
+//    public void shouldReturnTalkScheduleInTrack() throws Exception {
+//        validListTalks.remove(talk);
+//
+////        validListTalks.add(talk);
+//        conferenceManager.getScheduleConferenceTrack(validListTalks);
+//
+//        assertEquals(talk,conferenceManager.scheduleConferenceWithInformationFromFile());
+//
 //    }
+
+
+
 
 }

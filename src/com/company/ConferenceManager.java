@@ -17,7 +17,7 @@ public class ConferenceManager {
         return getScheduleConferenceTrack(talksValidList);
     }
 
-    private List<List<Talk>> getScheduleConferenceTrack(List<Talk> talksList) throws Exception {
+    protected List<List<Talk>> getScheduleConferenceTrack(List<Talk> talksList) throws Exception {
         // Find the total possible days.
         int perDayMinTime = 6 * 60;
         int totalTalksTime = getTotalTalksTime(talksList);
